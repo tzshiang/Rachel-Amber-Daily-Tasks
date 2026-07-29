@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+@import '@fontsource/baloo-2/400.css';
+@import '@fontsource/baloo-2/600.css';
+@import '@fontsource/baloo-2/800.css';
+@import '@fontsource/quicksand/400.css';
+@import '@fontsource/quicksand/500.css';
+@import '@fontsource/quicksand/700.css';
+
+@theme {
+  --font-display: 'Baloo 2', system-ui, sans-serif;
+  --font-body: 'Quicksand', system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Theme: 安安 Rachel — pink */
+[data-theme='pink'] {
+  --theme-50: #fff0f6;
+  --theme-100: #ffe0ee;
+  --theme-200: #ffbfdd;
+  --theme-300: #ff96c4;
+  --theme-400: #ff67a8;
+  --theme-500: #f8408c;
+  --theme-600: #e12173;
+  --theme-700: #b8145d;
+  --theme-text: #7a0f45;
+}
+
+/* Theme: 樂樂 Amber — purple */
+[data-theme='purple'] {
+  --theme-50: #f6f0ff;
+  --theme-100: #ece0ff;
+  --theme-200: #d9c1ff;
+  --theme-300: #bd96ff;
+  --theme-400: #a06bfb;
+  --theme-500: #8a44ed;
+  --theme-600: #7226d1;
+  --theme-700: #5a17a8;
+  --theme-text: #3c0f74;
+}
+
+/* Neutral parent-dashboard theme */
+[data-theme='parent'] {
+  --theme-50: #f4f5f9;
+  --theme-100: #e6e8f0;
+  --theme-200: #cbd0e1;
+  --theme-300: #a4acc7;
+  --theme-400: #7580a6;
+  --theme-500: #566089;
+  --theme-600: #414a6f;
+  --theme-700: #313859;
+  --theme-text: #232840;
+}
+
+.bg-theme-50 { background-color: var(--theme-50); }
+.bg-theme-100 { background-color: var(--theme-100); }
+.bg-theme-200 { background-color: var(--theme-200); }
+.bg-theme-300 { background-color: var(--theme-300); }
+.bg-theme-400 { background-color: var(--theme-400); }
+.bg-theme-500 { background-color: var(--theme-500); }
+.bg-theme-600 { background-color: var(--theme-600); }
+.bg-theme-700 { background-color: var(--theme-700); }
+.text-theme-500 { color: var(--theme-500); }
+.text-theme-600 { color: var(--theme-600); }
+.text-theme-700 { color: var(--theme-text); }
+.border-theme-200 { border-color: var(--theme-200); }
+.border-theme-300 { border-color: var(--theme-300); }
+.border-theme-400 { border-color: var(--theme-400); }
+.ring-theme-400 { --tw-ring-color: var(--theme-400); }
