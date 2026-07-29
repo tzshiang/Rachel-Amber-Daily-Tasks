@@ -58,9 +58,10 @@ function PinGate({ onUnlock }: { onUnlock: () => void }) {
 }
 
 function TodayChecklist({ kidId }: { kidId: (typeof KIDS)[number]['id'] }) {
-  const isTaskDone = useAppStore((s) => s.isTaskDone)
+  const records = useAppStore((s) => s.records)
   const date = todayKey()
-  const doneCount = TASKS.filter((t) => isTaskDone(kidId, date, t.id)).length
+  const dayRecord = records[kidId]?.[date] ?? {}
+  const doneCount = TASKS.filter((t) => dayRecord[t.id]).length
 
   return (
     <div className="rounded-2xl bg-white p-4 shadow-sm">
@@ -72,7 +73,7 @@ function TodayChecklist({ kidId }: { kidId: (typeof KIDS)[number]['id'] }) {
       </p>
       <ul className="flex flex-col gap-1.5">
         {TASKS.map((task) => {
-          const done = isTaskDone(kidId, date, task.id)
+          const done = Boolean(dayRecord[task.id])
           return (
             <li key={task.id} className="flex items-center gap-2 text-sm">
               <span

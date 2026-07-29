@@ -5,6 +5,7 @@ import { TASKS } from '../data/tasks'
 import { useAppStore } from '../store/useAppStore'
 import { todayKey } from '../utils/date'
 import { celebrate } from '../utils/celebrate'
+import { isDayFull as computeIsDayFull } from '../utils/stats'
 import TaskCard from '../components/TaskCard'
 import WeekView from '../components/WeekView'
 import MonthView from '../components/MonthView'
@@ -21,11 +22,9 @@ export default function KidPage() {
   const { kidId } = useParams()
   const kid = getKid(kidId)
   const [tab, setTab] = useState<Tab>('today')
+  const records = useAppStore((s) => s.records)
   const toggleTask = useAppStore((s) => s.toggleTask)
-  const isTaskDone = useAppStore((s) => s.isTaskDone)
-  const isDayFull = useAppStore((s) =>
-    kid ? s.isDayFull(kid.id, todayKey()) : false,
-  )
+  const isDayFull = kid ? computeIsDayFull(records, kid.id, todayKey()) : false
   const wasFull = useRef(false)
 
   useEffect(() => {
@@ -87,7 +86,7 @@ export default function KidPage() {
               <TaskCard
                 key={task.id}
                 task={task}
-                done={isTaskDone(kidIdTyped, date, task.id)}
+                done={Boolean(records[kidIdTyped]?.[date]?.[task.id])}
                 onToggle={() => toggleTask(kidIdTyped, date, task.id)}
               />
             ))}

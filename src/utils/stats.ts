@@ -16,6 +16,12 @@ export const dayRate = (records: CompletionRecords, kidId: KidId, key: string): 
   return Math.round((done / TASKS.length) * 100)
 }
 
+export const isDayFull = (records: CompletionRecords, kidId: KidId, key: string): boolean => {
+  const day = records[kidId]?.[key]
+  if (!day) return false
+  return TASKS.every((t) => day[t.id])
+}
+
 export const computeRangeStats = (
   records: CompletionRecords,
   kidId: KidId,
