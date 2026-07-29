@@ -10,7 +10,20 @@ A daily task check-in app for twin sisters 安安 (Rachel, pink theme) and 樂�
 - **Heart rewards (💖)** — a 0–5 heart rating computed from the weekly and monthly completion rate.
 - **Parent dashboard** (`/parent`, PIN-protected, default `0000`, changeable in the dashboard) showing both kids' daily progress plus weekly/monthly stats side by side.
 
-Data is stored locally in the browser (`localStorage`), per device.
+Data is stored in a Supabase (Postgres) database, so progress shows up the same way on any device.
+
+## Setup
+
+1. Create a free project at [supabase.com](https://supabase.com).
+2. In the project's **SQL Editor**, run [`supabase/schema.sql`](./supabase/schema.sql) once to create the tables.
+3. In **Project Settings → API**, copy the **Project URL** and **anon public** key.
+4. Copy `.env.example` to `.env.local` and fill in those two values:
+   ```bash
+   cp .env.example .env.local
+   ```
+5. When deploying (e.g. on Vercel), add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as environment variables in the project settings.
+
+This app has no login system — the Supabase `anon` key is used directly from the browser with permissive row-level-security policies (see `supabase/schema.sql`). That's an acceptable tradeoff for a private family checklist, but don't reuse this schema for anything sensitive.
 
 ## Development
 
