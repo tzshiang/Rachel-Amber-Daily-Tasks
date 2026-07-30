@@ -33,3 +33,8 @@ npm run dev      # start dev server
 npm run build    # type-check and build for production
 npm run preview  # preview the production build
 ```
+
+## Docs
+
+- [`docs/dev-guide.md`](./docs/dev-guide.md) — narrative case study of how this project was actually built, bugs and all.
+- [`docs/dev-sop.md`](./docs/dev-sop.md) — the reusable Claude Code + GitHub + Vercel + Supabase playbook distilled from that experience, for the next app.
