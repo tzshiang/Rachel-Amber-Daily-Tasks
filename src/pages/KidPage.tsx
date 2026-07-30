@@ -4,17 +4,12 @@ import { getKid } from '../data/kids'
 import { TASKS } from '../data/tasks'
 import { useAppStore } from '../store/useAppStore'
 import { todayKey } from '../utils/date'
-import { celebrate } from '../utils/celebrate'
+import { celebrate, KID_CONFETTI_COLORS } from '../utils/celebrate'
 import { isDayFull as computeIsDayFull } from '../utils/stats'
 import TaskCard from '../components/TaskCard'
 import WeekView from '../components/WeekView'
 import MonthView from '../components/MonthView'
 import type { KidId } from '../types'
-
-const confettiColors: Record<'pink' | 'purple', string[]> = {
-  pink: ['#f8408c', '#ff96c4', '#ffe0ee', '#ffffff'],
-  purple: ['#8a44ed', '#bd96ff', '#ece0ff', '#ffffff'],
-}
 
 type Tab = 'today' | 'week' | 'month'
 
@@ -29,7 +24,7 @@ export default function KidPage() {
 
   useEffect(() => {
     if (isDayFull && !wasFull.current && kid) {
-      celebrate(confettiColors[kid.color])
+      celebrate(KID_CONFETTI_COLORS[kid.color])
     }
     wasFull.current = isDayFull
   }, [isDayFull, kid])
@@ -78,6 +73,15 @@ export default function KidPage() {
           </button>
         ))}
       </nav>
+
+      <div className="mx-auto mt-3 flex max-w-md justify-center px-6">
+        <Link
+          to={`/kid/${kid.id}/math`}
+          className="rounded-full border-2 border-theme-300 bg-white px-4 py-2 text-sm font-bold text-theme-600 shadow-sm transition hover:bg-theme-100"
+        >
+          🔢 九九乘法表練習
+        </Link>
+      </div>
 
       <main className="mx-auto mt-6 max-w-md px-6">
         {tab === 'today' && (

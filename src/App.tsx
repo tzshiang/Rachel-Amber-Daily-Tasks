@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import KidPage from './pages/KidPage'
+import MathPracticePage from './pages/MathPracticePage'
 import ParentDashboard from './pages/ParentDashboard'
 import { useAppStore } from './store/useAppStore'
 import { isSupabaseConfigured } from './lib/supabaseClient'
@@ -68,6 +69,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/kid/:kidId" element={<KidPage />} />
+        <Route path="/kid/:kidId/math" element={<MathPracticePage />} />
         <Route path="/parent" element={<ParentDashboard />} />
       </Routes>
     </>

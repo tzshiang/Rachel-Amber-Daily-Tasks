@@ -1,10 +1,11 @@
 export type KidId = 'rachel' | 'amber'
+export type KidColor = 'pink' | 'purple'
 
 export interface Kid {
   id: KidId
   nameZh: string
   nameEn: string
-  color: 'pink' | 'purple'
+  color: KidColor
   mascot: string
 }
 
