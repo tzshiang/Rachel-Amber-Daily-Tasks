@@ -9,6 +9,7 @@ A daily task check-in app for twin sisters 安安 (Rachel, pink theme) and 樂�
 - **Today / Week / Month tabs** with a celebration animation when all of today's tasks are done.
 - **Heart rewards (💖)** — a 0–5 heart rating computed from the weekly and monthly completion rate.
 - **Parent dashboard** (`/parent`, PIN-protected, default `0000`, changeable in the dashboard) showing both kids' daily progress plus weekly/monthly stats side by side.
+- **99 multiplication table practice** (`/kid/:kidId/math`) — drill one number's table (2-9) or take a 20-question random quiz, multiple choice.
 
 Data is stored in a Supabase (Postgres) database, so progress shows up the same way on any device.
 
@@ -38,3 +39,4 @@ npm run preview  # preview the production build
 
 - [`docs/dev-guide.md`](./docs/dev-guide.md) — narrative case study of how this project was actually built, bugs and all.
 - [`docs/dev-sop.md`](./docs/dev-sop.md) — the reusable Claude Code + GitHub + Vercel + Supabase playbook distilled from that experience, for the next app.
+- [`docs/app-brief-template.md`](./docs/app-brief-template.md) — a fill-in-the-blank template for briefing Claude Code on a new app, with real examples from this project.

@@ -7,7 +7,7 @@
 - 開發分支: `claude/daily-checklist-app-twins-wvz6h4`
 - 原始 PR: [#1](https://github.com/tzshiang/Rachel-Amber-Daily-Tasks/pull/1)（已合併進 `main`）
 
-另見：[開發 SOP：從需求到雲端資料庫](./dev-sop.md) —— 從這次經驗濃縮出的可重複使用流程。
+另見：[開發 SOP：從需求到雲端資料庫](./dev-sop.md) —— 從這次經驗濃縮出的可重複使用流程。[需求 Prompt 規格模板](./app-brief-template.md) —— 下次開新 App 講需求時可以直接複製填空。
 
 ## 1 · 大架構：四個角色怎麼合作
 
